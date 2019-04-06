@@ -23,9 +23,9 @@ Allgemeine Konfigurationsdateien werden automatisch mit Standardwerten erstellt.
 - `config.json` aus [`config.example.json`](config.json.example)
 - `paths.txt` aus [`paths.example.txt`](paths.txt.example)
 
-Zusätzlich müssen Export-Konfigurationsdateien (siehe unten) angelegt werden. Der Ordnername kann in der `paths.txt` Datei geändert werden, standardmäßig heißt er `configs`. Beispiele, wie Konfigurationen aussehen, sind in [`example_configs`](example_configs) abgelegt.
+Zusätzlich müssen Export-Konfigurationsdateien (siehe unten) angelegt werden. Der Ordnername kann in der `paths.txt` Datei geändert werden, standardmäßig heißt er `configs`. Beispiele, wie Konfigurationen aussehen, sind in [`example_configs`](example_configs) abgelegt. Wenn es keinen `configs` Ordner gibt, wird wie bei den allgemeinen Konfigurationsdateien automatisch der `example_configs` Ordner kopiert.
 
-Um die Webapp zu starten, muss das `start.bat` Skript ausgeführt werden, das automatisch auf die aktuellste Version updated. Die App ist dann unter `https://localhost:5000` (bzw. anstatt `localhost` die IP-Adresse des Rechners im Netzwerk) erreicht werden.
+Um die Webapp zu starten, muss das `start.bat` Skript ausgeführt werden (über die Kommandozeile oder per Doppelklick), das automatisch auf die aktuellste Version updated. Die App ist dann unter `https://localhost:5000` (bzw. anstatt `localhost` die IP-Adresse des Rechners im Netzwerk) erreicht werden.
 
 <a name="export-konfigurationen" />
 
