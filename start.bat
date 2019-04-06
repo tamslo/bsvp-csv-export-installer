@@ -2,7 +2,7 @@
 REM TODO: Konfiguration aus paths.txt auslesen
 REM TODO: Ordner für mappings, export und logs erstellen, wenn noch nicht vorhanden
 REM TODO: Dateien mit mappings kopieren
-REM TODO: Example configs in richtige configs kopieren
+REM TODO: Example configs in richtige configs kopieren (config.json, paths.txt, configs/)
 
 docker build -t bsvp-csv-export .
 
