@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 SHELL ["/bin/bash", "-c"]
 
 # INSTALL GENERAL DEPENDENCIES
@@ -8,15 +8,13 @@ RUN apt-get install -y curl python3-minimal python3-pip git
 
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 11.11.0
-
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
+RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+RUN source $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
-
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+ENV PATH $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 # INSTALL BSVP EXPORTERS FROM GIT
 
