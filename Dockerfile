@@ -12,6 +12,7 @@ RUN apt-get install -y nodejs
 
 # INSTALL BSVP EXPORTERS FROM GIT
 
+ADD https://api.github.com/repos/tamslo/bsvp-csv-export/git/refs/heads version.json
 RUN git clone https://github.com/tamslo/bsvp-csv-export.git code
 WORKDIR /code
 RUN pip3 install -r requirements.txt

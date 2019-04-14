@@ -18,12 +18,12 @@ if not exist %tooltip_mapping_target% (
 
 REM Docker Container aufsetzen und starten
 
-docker build --no-cache -t bsvp-csv-export .
+docker build -t bsvp-csv-export .
 docker run^
-  -v %data_directory%:/data:ro^
-  -v %config_directory%:/configs:ro^
-  -v %absolute_path%%mappings_directory%:/mappings:ro^
-  -v %absolute_path%%export_directory%:/export^
-  -v %absolute_path%%logs_directory%:/logs^
+  -v %data_directory%:/code/data:ro^
+  -v %config_directory%:/code/configs:ro^
+  -v %absolute_path%%mappings_directory%:/code/mappings:ro^
+  -v %absolute_path%%export_directory%:/code/export^
+  -v %absolute_path%%logs_directory%:/code/logs^
   -p 0.0.0.0:5000:5000^
   bsvp-csv-export python3 server.py
