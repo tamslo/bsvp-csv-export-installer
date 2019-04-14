@@ -2,7 +2,7 @@ set export_directory=export\
 set logs_directory=logs\
 set mappings_directory=mappings\
 
-set absolute_path=C:\Users\Tamara\Projects\bsvp\bsvp-csv-export-installer\
-set config_directory=C:\Users\Tamara\Projects\bsvp\bsvp-csv-export-installer\configs\
-set data_directory=C:\Users\Tamara\Projects\bsvp\library\
-set tooltip_mapping=C:\Users\Tamara\Projects\bsvp\exres\data\tags.da
+set absolute_path=C:\BSVP\exporter
+set config_directory=C:BSVP\exporter\configs\
+set data_directory=C:\BSVP\library\
+set tooltip_mapping=C:\BSVP\exres\data\tags.da

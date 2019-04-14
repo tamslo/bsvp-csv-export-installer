@@ -26,7 +26,7 @@ Konfigurationsdateien (`config.json`, `paths.txt` und `configs`) werden automati
 
 Der Ordnername von `configs` kann in der `paths.txt` Datei geändert werden.
 
-Um die Webapp zu starten, muss das `start.bat` Skript ausgeführt werden (über die Kommandozeile oder per Doppelklick), das automatisch auf die aktuellste Version updated. Die App ist dann unter `https://localhost:5000` (bzw. anstatt `localhost` die IP-Adresse des Rechners im Netzwerk) erreicht werden.
+Um die Webapp zu starten, muss das `run.bat` Skript ausgeführt werden (über die Kommandozeile oder per Doppelklick), das automatisch auf die aktuellste Version updated. Die App ist dann unter `https://localhost:5000` (bzw. anstatt `localhost` die IP-Adresse des Rechners im Netzwerk) erreicht werden.
 
 <a name="export-konfigurationen" />
 
