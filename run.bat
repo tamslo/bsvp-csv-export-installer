@@ -26,4 +26,4 @@ docker run^
   -v %absolute_path%%export_directory%:/code/export^
   -v %absolute_path%%logs_directory%:/code/logs^
   -p 0.0.0.0:5000:5000^
-  bsvp-csv-export python3 server.py
+  bsvp-csv-export source venv/bin/activate && python server.py
