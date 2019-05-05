@@ -16,6 +16,11 @@ if not exist %tooltip_mapping_target% (
   copy %tooltip_mapping% %tooltip_mapping_target%
 )
 
+set attribute_mapping_target=%mappings_directory%attributes.da
+if not exist %attribute_mapping_target% (
+  copy %attribute_mapping% %attribute_mapping_target%
+)
+
 REM Docker Container aufsetzen und starten
 
 docker build -t bsvp-csv-export .
