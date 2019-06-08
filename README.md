@@ -34,6 +34,21 @@ Um die Webapp zu starten, muss das `run.bat` Skript ausgeführt werden (über di
 
 Die Kofigurations-Dateien sind im JSON Format hinterlegt. Es empfiehlt sich, mit einem Editor mit JSON-Erweiterung zu arbeiten, der auf Fehler aufmerksam machen kann (z.B. Notepad++) oder die JSON-Dateien mit einem Online-Validierer (z.B. [JSONLint](https://jsonlint.com/)) zu überprüfen. Es gibt muss eine Datei `Shop.json` für den allgemeinen BSVP Daten-Export nach Herstellern geben und einen Ordner `Konfigurator`, der die Konfigurationen für den Konfigurator-Export beinhaltet.
 
+### Komplett
+
+In der `Komplett.json` können verschiedene Einstellungen für den kompletten Export festgelegt werden:
+
+* `exclude`: Felder angeben, die nicht im kompletten Export enthalten sein sollen.
+
+```json
+{
+  "exclude": [
+    "ARTLISTING",
+    "CAT0M"
+  ]
+}
+```
+
 ### Shop
 
 Durch die `Shop.json` werden Felder angegeben, die in die CSV Datei pro Hersteller geschrieben werden. Als Bezeichner eines Feldes wird der Name angegeben, wie er in der CSV erscheint, als Wert ein Objekt, das den Wert beschreibt:
