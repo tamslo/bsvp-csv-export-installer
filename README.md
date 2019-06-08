@@ -38,13 +38,14 @@ Die Kofigurations-Dateien sind im JSON Format hinterlegt. Es empfiehlt sich, mit
 
 In der `Komplett.json` können verschiedene Einstellungen für den kompletten Export festgelegt werden:
 
-* `exclude`: Felder angeben, die nicht im kompletten Export enthalten sein sollen.
+* `exclude`: Felder angeben, die nicht im kompletten Export enthalten sein sollen. Es können normale Felder mit Namen (z.B. `ARTLISTING`) und TECHDATA Felder mit ID (z.B. `0000009`) angegeben werden.
 
 ```json
 {
   "exclude": [
     "ARTLISTING",
-    "CAT0M"
+    "CAT0M",
+    "0000009"
   ]
 }
 ```
