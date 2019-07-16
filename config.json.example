@@ -1,5 +1,6 @@
 {
   "csv-encoding": "cp1252",
   "konfigurator-csv-separator": ";",
-  "shop-csv-separator": "§"
+  "shop-csv-separator": "§",
+  "downloads-path": "media/Links"
 }
