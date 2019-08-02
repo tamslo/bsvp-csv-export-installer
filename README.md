@@ -120,6 +120,18 @@ Der Dateiname der jeweiligen JSON Datei bestimmt den Dateinamen der CSV Datei, d
         "vorher": ["CNS 1.4301", "CNS 1.4301 (AISI304)", "CNS 18/10"],
         "nachher": "CNS",
         "felder": ["0000158"]
+      },
+      {
+        "vorher": ["Klimaklasse"],
+        "nachher": "Kl.",
+        "felder": ["0000142"],
+        "option": "startswith"
+      },
+      {
+        "vorher": ["RH"],
+        "nachher": "RH (relative Feuchte)",
+        "felder": ["0000142"],
+        "option": "endswith"
       }
     ]
   }
@@ -140,7 +152,15 @@ Kombinationen von Werten können angegeben werden, sie müssen es aber nicht. De
 
 #### Formatierung von Werten
 
-Formatierungen können in dem Feld `"formatierungen"` angegeben werden. Einfache Ersetzungen von Werten (Bsp. die Werte `["CNS 1.4301", "CNS 1.4301 (AISI304)", "CNS 18/10"]` sollen immer zu `"CNS"` geändert werden) können im untergeordneten Feld `"ersetzungen"` angegeben werden. Für komliziertere Formatierungen gibt es folgende vordefinierte Regeln:
+Formatierungen können in dem Feld `"formatierungen"` angegeben werden.
+
+Einfache Ersetzungen von Werten (Bsp. die Werte `["CNS 1.4301", "CNS 1.4301 (AISI304)", "CNS 18/10"]` sollen immer zu `"CNS"` geändert werden) können im untergeordneten Feld `"ersetzungen"` angegeben werden.
+
+Wenn die Ersetzung für einen Teil-String am Anfang oder am Ende erfolgen soll, muss als Option `"startswith"` bzw. `"endswith"` angegeben werden.
+
+Für Ersetzungen wird nicht auf Groß- und Kleinschreibung geachtet `"Ja"` würde genau wie `"ja"` zu `"yes"` geändert werden. Das gilt nicht für Teil-Ersetzungen.
+
+Für komliziertere Formatierungen gibt es folgende vordefinierte Regeln:
 
 - `"punkt_zu_komma"`: der Punkt (in einer Kommazahl) wird zu einem Komma geändert
 - `"bereich_von_null"`: zu einem Wert wird "0|" hinzugefügt
