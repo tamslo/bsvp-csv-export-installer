@@ -2,7 +2,7 @@
 
 Python-basierter Exporter für die Umwandlung von BSVP zu CSV Dateien.
 
-Trello: https://trello.com/b/ug9q2Eif/bsvp
+Trello: <https://trello.com/b/ug9q2Eif/bsvp>
 
 Diese README sieht komisch aus? Dann öffne sie mit einem Editor mit Markdown-Erweiterung (z.B. Notepad++) oder mit einem Online-Viewer (z.B. [Github](https://jbt.github.io/markdown-editor/)).
 
@@ -16,13 +16,13 @@ Bei Fragen und Problemen mit dem Export meldet euch gerne bei mir unter tamarasl
 
 ## Erste Schritte
 
-Um die Exporter ausführen zu können, wird lediglich Docker benötigt (Windows Installer: https://docs.docker.com/docker-for-windows/install/).
+Um die Exporter ausführen zu können, wird lediglich Docker benötigt (Windows Installer: <https://docs.docker.com/docker-for-windows/install/>).
 
 Konfigurationsdateien (`config.json`, `paths.txt` und `configs`) werden automatisch mit Standardwerten erstellt. Um diese zu überschreiben, können die Dateien kopiert, umbenannt und angepasst werden:
 
-- `config.json` aus [`config.example.json`](config.json.example)
-- `paths.txt` aus [`paths.example.txt`](paths.txt.example)
-- `configs` aus [`example_configs`](example_configs)
+-   `config.json` aus [`config.example.json`](config.json.example)
+-   `paths.txt` aus [`paths.example.txt`](paths.txt.example)
+-   `configs` aus [`example_configs`](example_configs)
 
 Der Ordnername von `configs` kann in der `paths.txt` Datei geändert werden.
 
@@ -38,7 +38,7 @@ Die Kofigurations-Dateien sind im JSON Format hinterlegt. Es empfiehlt sich, mit
 
 In der `Komplett.json` können verschiedene Einstellungen für den kompletten Export festgelegt werden:
 
-* `exclude`: Felder angeben, die nicht im kompletten Export enthalten sein sollen. Es können normale Felder mit Namen (z.B. `ARTLISTING`) und TECHDATA Felder mit ID (z.B. `0000009`) angegeben werden.
+-   `exclude`: Felder angeben, die nicht im kompletten Export enthalten sein sollen. Es können normale Felder mit Namen (z.B. `ARTLISTING`) und TECHDATA Felder mit ID (z.B. `0000009`) angegeben werden.
 
 ```json
 {
@@ -73,16 +73,16 @@ Durch die `Shop.json` werden Felder angegeben, die in die CSV Datei pro Herstell
 
 Für den Wert wird der Typ angegeben und der dazugehörige Wert:
 
-- `wert`: Es wird ein fester Wert eingetragen
-- `prod`: Es wird der Name des Feldes in der `.prod`-Datei angegeben
-- `ilugg`: Es wird der Name des Feldes in der `.ilugg`-Datei angegeben
-- `iterierbar`: Es müssen der Präfix des Feldes in der `.prod`-Datei und der Maximalwert angegeben werden; zusätzlich kann der `start` Index (standardmäßig `0`) angegeben werden
+-   `wert`: Es wird ein fester Wert eingetragen
+-   `prod`: Es wird der Name des Feldes in der `.prod`-Datei angegeben
+-   `ilugg`: Es wird der Name des Feldes in der `.ilugg`-Datei angegeben
+-   `iterierbar`: Es müssen der Präfix des Feldes in der `.prod`-Datei und der Maximalwert angegeben werden; zusätzlich kann der `start` Index (standardmäßig `0`) angegeben werden
 
 Für Werte, die gesondert zusammengebaut werden müssen, wird ein leeres Objekt (`{}`) bzw. werden zusätzliche Spezifikationen angegeben:
 
-- `p_desc.de`: leeres Objekt
-- `p_movies.de`: leeres Objekt
-- `products_energy_efficiency_text`: Liste von Feldern, die in die Tabelle geschrieben werden (`{ "fields": [ "0000015", "0000089" ] }`)
+-   `p_desc.de`: leeres Objekt
+-   `p_movies.de`: leeres Objekt
+-   `products_energy_efficiency_text`: Liste von Feldern, die in die Tabelle geschrieben werden (`{ "fields": [ "0000015", "0000089" ] }`)
 
 ### Konfigurator
 
@@ -133,6 +133,13 @@ Der Dateiname der jeweiligen JSON Datei bestimmt den Dateinamen der CSV Datei, d
         "felder": ["0000142"],
         "option": "endswith"
       }
+    ],
+    "gruppierungen": [
+      {
+        "grenzwerte": [700, 1000],
+        "einheit": "mm",
+        "felder": ["0000058"]
+      }
     ]
   }
 }
@@ -160,10 +167,12 @@ Wenn die Ersetzung für einen Teil-String am Anfang oder am Ende erfolgen soll, 
 
 Für Ersetzungen wird nicht auf Groß- und Kleinschreibung geachtet `"Ja"` würde genau wie `"ja"` zu `"yes"` geändert werden. Das gilt nicht für Teil-Ersetzungen.
 
+Außerdem können Gruppierungen numerischer Werte vorgenommen werden. Wichtig dabei ist, dass die Werte im angegebenen Datenfeld tatsächlich numerisch sind, ansonsten funktioniert die Formatierung nicht. Dabei werden Grenzwerte zwischen den Gruppen und die Einheit der Werte angegeben. Der resultierende Wert ist dann zum Beispiel `"bis 700mm"`, `"bis 1000mm"`, oder `"> 1000mm"`
+
 Für komliziertere Formatierungen gibt es folgende vordefinierte Regeln:
 
-- `"punkt_zu_komma"`: der Punkt (in einer Kommazahl) wird zu einem Komma geändert
-- `"bereich_von_null"`: zu einem Wert wird "0|" hinzugefügt
+-   `"punkt_zu_komma"`: der Punkt (in einer Kommazahl) wird zu einem Komma geändert
+-   `"bereich_von_null"`: zu einem Wert wird "0|" hinzugefügt
 
 Zu einer Ersetzung bzw. Regel kann eine Liste von Attribut-IDs angegeben werden, auf die diese dann angewendet werden.
 
@@ -175,18 +184,14 @@ Hier sind Lösungen zu häufigen Fehlern aufgeführt, geordnet nach den Fehlerar
 
 ### PermissionError
 
-```
-PermissionError: [WinError 32] The process cannot access the file because it is being used by another process
-```
+    PermissionError: [WinError 32] The process cannot access the file because it is being used by another process
 
 Es könnte sein, dass eine CSV Datei, die überschrieben werden soll noch in einem anderen Programm wie Excel geöffnet ist, bitte schließen und den Exporter erneut starten.
 
 ### JSONDecodeError
 
-Beim JSON Format empfiehlt es sich allgemein, mit einem Editor zu arbeiten, der auf Syntax-Fehler aufmerksam macht. Alternativ können JSON Dateien auch online validiert werden (z.B. unter https://jsonlint.com/).
+Beim JSON Format empfiehlt es sich allgemein, mit einem Editor zu arbeiten, der auf Syntax-Fehler aufmerksam macht. Alternativ können JSON Dateien auch online validiert werden (z.B. unter <https://jsonlint.com/>).
 
-```
-json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 19 column 5 (char 566)
-```
+    json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 19 column 5 (char 566)
 
 Eine der JSON Konfigurationen enthält ein Komma in der letzten Zeile, das bitte entfernen.
