@@ -103,6 +103,10 @@ Der Dateiname der jeweiligen JSON Datei bestimmt den Dateinamen der CSV Datei, d
       "felder": ["0000226", "0000225"]
     }
   },
+  "reihenfolgen": [{
+    "felder": ["0000226", "0000225"],
+    "reihenfolge": ["temperatur_numerisch", "temperaturen_gruppieren"]
+  }],
   "formatierungen": {
     "punkt_zu_komma": ["0000089"],
     "ersetzungen": [
@@ -132,6 +136,13 @@ Der Dateiname der jeweiligen JSON Datei bestimmt den Dateinamen der CSV Datei, d
         "nachher": "RH (relative Feuchte)",
         "felder": ["0000142"],
         "option": "endswith"
+      },
+      {
+        "id": "temperatur_numerisch",
+        "vorher": ["°C"],
+        "nachher": "",
+        "felder": ["0000226", "0000225"],
+        "option": "endswith"
       }
     ],
     "gruppierungen": [
@@ -139,6 +150,12 @@ Der Dateiname der jeweiligen JSON Datei bestimmt den Dateinamen der CSV Datei, d
         "grenzwerte": [700, 1000],
         "einheit": "mm",
         "felder": ["0000058"]
+      },
+      {
+        "id": "temperaturen_gruppieren",
+        "grenzwerte": [0],
+        "einheit": "°C",
+        "felder": ["0000226", "0000225"]
       }
     ]
   }
@@ -175,6 +192,13 @@ Für komliziertere Formatierungen gibt es folgende vordefinierte Regeln:
 -   `"bereich_von_null"`: zu einem Wert wird "0|" hinzugefügt
 
 Zu einer Ersetzung bzw. Regel kann eine Liste von Attribut-IDs angegeben werden, auf die diese dann angewendet werden.
+
+Zusätzlich können Gruppierungen und Ersetzungen, die voneinander abhängen, geordnet werden.
+Dazu muss eine `"id"` angegeben werden (diese muss eindeutig sein, aber was darin steht, ist egal).
+Dann kann ein Feld mit `"reihenfolgen"` angelegt werden, für jede Reihenfolge werden betroffene Feld IDs in `"felder"` und die Formatierung IDs in `"reihenfolge"` angegeben.
+Beispiel (siehe oben): Für Temperaturen (`"0000225"` and `"0000226"`) soll zuerst das `°C` gelöscht werden, bevor nach Temperaturen über und unter 0°C gruppiert wird.
+Für die Gruppierung wird die ID `temperaturen_gruppieren` vergeben, für die Ersetzung `temperatur_numerisch`.
+Die Reihenfolge der Bearbeitung für die Felder `["0000225", "0000226"]` ist dann `["temperatur_numerisch", "temperaturen_gruppieren"]`.
 
 <a name="fehlerbehebung" />
 
