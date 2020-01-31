@@ -202,6 +202,19 @@ Die Reihenfolge der Bearbeitung für die Felder `["0000225", "0000226"]` ist dan
 
 <a name="fehlerbehebung" />
 
+### Custom
+
+Der Custom Exporter ist eine schnelle Möglichkeit, nur über das Anpassen der `Custom.json` bestimmte Felder zu exportieren.
+Bitte beachten: Die Exporter müssen über das Web-Interface neu geladen werden, wenn die `Custom.json` bei laufendem Server geändert wurde.
+
+Die einfache Konfiguration enthält lediglich den CSV-Header-Namen (z.B. `"artikelnummer"` oder `"kaeltemittel"`) und das Feld im Produkt (z.B. `"ARTNR"` oder `"0000139"`).
+
+Zusätzlich kann geprüft werden, ob bestimmte Werte in einem Feld vorhanden sind.
+Nur solche Produkte werden exportiert, die den angegebenen Text enthalten.
+Das kann wie folgt definiert werden: `"kaeltemittel": {"field": "0000139", "contains": "404"}`.
+
+Wenn solche Überprüfungen für mehrere Werte angegeben werden, werden nur solche Produkte exportiert, die alle Bedingungen erfüllen. Wenn zum Beispiel zusätzlich zum Kältemittel noch `"artikelnummer": {"field": "ARTNR", "contains": "AHT"}` angegeben wird, werden nur Artikel exportiert deren Artikelnummer sowohl `AHT` UND deren Kältemittel `404` beinhaltet.
+
 ## Fehlerbehebung
 
 Hier sind Lösungen zu häufigen Fehlern aufgeführt, geordnet nach den Fehlerarten, die in der Kommandozeile ausgegeben werden.
